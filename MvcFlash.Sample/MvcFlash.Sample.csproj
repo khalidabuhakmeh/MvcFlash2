@@ -120,6 +120,7 @@
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IoCController.cs" />
+    <Compile Include="Controllers\TricksController.cs" />
     <Compile Include="Controllers\WithBaseController.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyResolver.cs" />
@@ -127,7 +128,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FlashImage.cs" />
     <Compile Include="Models\FlashRegistry.cs" />
+    <Compile Include="Models\RelatedPages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +162,9 @@
     <Content Include="Views\Shared\DisplayTemplates\MessageBase.cshtml" />
     <Content Include="Views\WithBase\Index.cshtml" />
     <Content Include="Views\IoC\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ImageMessage.cshtml" />
+    <Content Include="Views\Tricks\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\HelpfulLinks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

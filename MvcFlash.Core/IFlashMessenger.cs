@@ -6,6 +6,7 @@ namespace MvcFlash.Core
         : IFlashPusher, IFlashPopper
     {
         int Count { get; }
+        void Clear();
     }
 
     public interface IFlashPusher

@@ -11,14 +11,14 @@ namespace MvcFlash.Core.Providers
 
         public virtual MessageBase Push(MessageBase message)
         {
+            if (message == null)
+                throw new ArgumentNullException("message", "message cannot be null");
+
             var key = string.IsNullOrWhiteSpace(message.Id)
                           ? (message.Id = Guid.NewGuid().ToString("N"))
                           : message.Id;
 
-            if (Messages.ContainsKey(key))
-                Messages.Remove(key);
-
-            Messages.Add(key, message);
+            Messages[key] = message;
 
             return message;
         }
@@ -34,5 +34,13 @@ namespace MvcFlash.Core.Providers
         }
 
         public virtual int Count { get { return Messages.Count; } }
+
+        public void Clear()
+        {
+            while (Messages.Count > 0)
+            {
+                Pop();
+            }
+        }
     }
 }

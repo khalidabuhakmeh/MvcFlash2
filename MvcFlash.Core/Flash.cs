@@ -21,6 +21,11 @@ namespace MvcFlash.Core
             public static string Warning = DefaulWarning;
         }
 
+        /// <summary>
+        /// Will first check in DependencyResolver.Current for the 
+        /// service of type IFlashMessenger, then will check for internal
+        /// service set, then will call Initialize if all else fails.
+        /// </summary>
         public static IFlashMessenger Instance
         {
             get
@@ -43,6 +48,11 @@ namespace MvcFlash.Core
             }
         }
 
+        /// <summary>
+        /// Use this method to set the Flash Messenger service and also
+        /// the defaults for the out of the box message types.
+        /// </summary>
+        /// <param name="settings"></param>
         public static void Initialize(FlashSettings settings = null)
         {
             if (settings == null)
@@ -63,6 +73,11 @@ namespace MvcFlash.Core
             }
         }
 
+        /// <summary>
+        /// Call this if you want to reset the types and the
+        /// Flash messenger instance to null. Very helpful
+        /// for unit testing.
+        /// </summary>
         public static void Reset()
         {
             _instance = null;

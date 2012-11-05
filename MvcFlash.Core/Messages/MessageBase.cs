@@ -13,5 +13,6 @@ namespace MvcFlash.Core.Messages
         public string Title { get; set; }
         public string Content { get; set; }
         public string MessageType { get; set; }
+        public string Template { get; set; }
     }
 }

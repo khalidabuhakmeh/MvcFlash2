@@ -16,7 +16,9 @@ namespace MvcFlash.Core.Extensions
             while (popper.Count > 0)
             {
                 var message = popper.Pop();
-                builder.AppendLine(helper.DisplayFor(m => message).ToString());
+                builder.AppendLine(string.IsNullOrWhiteSpace(message.Template)
+                                       ? helper.DisplayFor(m => message).ToString()
+                                       : helper.DisplayFor(m => message, message.Template).ToString());
             }
 
             return MvcHtmlString.Create(builder.ToString());

@@ -1,0 +1,15 @@
+﻿@model MvcFlash.Core.Messages.SimpleMessage<MvcFlash.Sample.Models.RelatedPages>
+<div class="alert alert-@Model.MessageType">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>@Model.Title!</strong>
+    <p> @Model.Content</p>
+    @if (Model.Data != null)
+    {
+        <ul>
+            @foreach(var link in Model.Data)
+            {
+                <li><a href="@link">@link</a></li>
+            }
+        </ul>
+    }
+</div>

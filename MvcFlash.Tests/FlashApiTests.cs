@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using MvcFlash.Core;
 using MvcFlash.Core.Extensions;
 using MvcFlash.Core.Messages;
@@ -82,7 +83,7 @@ namespace MvcFlash.Tests
         public void Can_push_a_success_message()
         {
             var message = Flash.Success("success!", "this is so successful!");
-            
+
             message.Should().NotBeNull();
             message.MessageType.Should().Be(Core.Flash.Types.Success);
 
@@ -144,6 +145,26 @@ namespace MvcFlash.Tests
                 Flash.Success(id: "unique");
 
             Flash.Count.Should().Be(1);
+        }
+
+        [Fact]
+        public void Can_clear_messenger_messages()
+        {
+            for (int i = 0; i < 100; i++)
+                Flash.Success("hello");
+
+            Flash.Count.Should().Be(100);
+
+            Flash.Clear();
+
+            Flash.Count.Should().Be(0);
+        }
+
+        [Fact]
+        public void Can_not_push_null_message()
+        {
+            var ex = Assert.Throws<ArgumentNullException>(() => Flash.Push(null));
+            ex.ParamName.Should().Be("message");
         }
 
         public class Test
