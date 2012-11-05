@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>MvcFlash.Core</id>
+        <version>2.0.0</version>
+        <title>MvcFlash.Core</title>
+        <authors>Khalid Abuhakmeh</authors>
+        <owners>Khalid Abuhakmeh</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Flash Messaging for ASP .NET MVC 4.</description>
+        <summary>There are times where you would like to pass a message up to the view, but you aren’t sure where the redirects will end up last. MvcFlash can help.</summary>
+        <tags>Flash, Mvc</tags>
+        <dependencies>
+            <group targetFramework=".NETFramework4.0">
+                <dependency id="Microsoft.AspNet.Mvc" version="4.0.20710.0"/>
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="MvcFlash.Core\bin\Release\MvcFlash.Core.dll" target="lib\net40\MvcFlash.Core.dll"/>
+    </files>
+</package>

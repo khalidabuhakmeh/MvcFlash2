@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>MvcFlash.Web</id>
+        <version>2.0.0</version>
+        <title>MvcFlash.Web</title>
+        <authors>Khalid Abuhakmeh</authors>
+        <owners>Khalid Abuhakmeh</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Flash Messaging for ASP .NET MVC 4. Includes templates ready structured to take advantage of Twitter Bootstrap.</description>
+        <summary>There are times where you would like to pass a message up to the view, but you aren’t sure where the redirects will end up last. MvcFlash can help.</summary>
+        <copyright>Khalid Abuhakmeh (c) 2012</copyright>
+        <dependencies>
+            <group targetFramework=".NETFramework4.0">
+                <dependency id="MvcFlash.Core"/>
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="MvcFlash.Sample\Views\Shared\DisplayTemplates\MessageBase.cshtml" target="content\Views\Shared\DisplayTemplates\MessageBase.cshtml"/>
+    </files>
+</package>
