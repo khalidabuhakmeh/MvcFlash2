@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Linq;
+using System.Web.Mvc;
 
 namespace MvcFlash.Core
 {
-    public static class MvcFlash
+    public static class Flash
     {
         public static object Sync = new object();
         private static IFlashMessenger _instance;
@@ -24,6 +25,11 @@ namespace MvcFlash.Core
         {
             get
             {
+                var messenger = DependencyResolver.Current.GetService<IFlashMessenger>();
+
+                if (messenger != null)
+                    return messenger;
+
                 if (_instance == null)
                 {
                     lock (Sync)
@@ -47,7 +53,9 @@ namespace MvcFlash.Core
 
             lock (Sync)
             {
-                _instance = settings.Messenger;
+                _instance =  DependencyResolver.Current.GetService<IFlashMessenger>()
+                          ?? settings.Messenger;
+
                 Types.Success = settings.Success;
                 Types.Error = settings.Error;
                 Types.Info = settings.Info;

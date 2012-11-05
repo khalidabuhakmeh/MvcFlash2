@@ -6,10 +6,10 @@ namespace MvcFlash.Core
     {
         public FlashSettings()
         {
-            Success = MvcFlash.DefaultSuccess;
-            Error = MvcFlash.DefaultError;
-            Info = MvcFlash.DefaultInfo;
-            Warning = MvcFlash.DefaulWarning;
+            Success = Flash.DefaultSuccess;
+            Error = Flash.DefaultError;
+            Info = Flash.DefaultInfo;
+            Warning = Flash.DefaulWarning;
         }
 
         public string Success { get; set; }

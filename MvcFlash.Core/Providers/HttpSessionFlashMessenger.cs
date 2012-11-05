@@ -7,15 +7,14 @@ namespace MvcFlash.Core.Providers
 {
     public class HttpSessionFlashMessenger : FlashMessengerBase
     {
-        private readonly HttpContextBase _httpContext;
+        private HttpContextBase _httpContext;
         private static readonly object _sync = new object();
         private const string MvcflashMessages = "___mvcflash_messages";
 
         public HttpSessionFlashMessenger()
-            :this(new HttpContextWrapper(HttpContext.Current))
         {}
 
-        private HttpSessionFlashMessenger(HttpContextBase httpContext)
+        public HttpSessionFlashMessenger(HttpContextBase httpContext)
         {
             if (httpContext == null)
                 throw new ArgumentException("http context is required to use the HttpSessionFlashMessenger");
@@ -27,6 +26,9 @@ namespace MvcFlash.Core.Providers
         {
             get
             {
+                if (_httpContext == null || _httpContext.Handler == null)
+                    _httpContext = new HttpContextWrapper(HttpContext.Current);
+
                 if (_httpContext.Session[MvcflashMessages] as IDictionary<string, MessageBase> == null)
                 {
                     lock(_sync)

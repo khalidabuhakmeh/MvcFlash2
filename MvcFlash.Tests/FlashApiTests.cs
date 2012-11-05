@@ -14,7 +14,7 @@ namespace MvcFlash.Tests
         public FlashApiTests()
         {
             Flash = new InMemoryFlashMessenger();
-            Core.MvcFlash.Reset();
+            Core.Flash.Reset();
         }
 
         [Fact]
@@ -84,7 +84,7 @@ namespace MvcFlash.Tests
             var message = Flash.Success("success!", "this is so successful!");
             
             message.Should().NotBeNull();
-            message.MessageType.Should().Be(Core.MvcFlash.Types.Success);
+            message.MessageType.Should().Be(Core.Flash.Types.Success);
 
             Flash.Count.Should().Be(1);
         }
@@ -95,7 +95,7 @@ namespace MvcFlash.Tests
             var message = Flash.Error("error!", "this is so not successful!");
 
             message.Should().NotBeNull();
-            message.MessageType.Should().Be(Core.MvcFlash.Types.Error);
+            message.MessageType.Should().Be(Core.Flash.Types.Error);
 
             Flash.Count.Should().Be(1);
         }
@@ -106,7 +106,7 @@ namespace MvcFlash.Tests
             var message = Flash.Warning("error!", "this is so not successful!");
 
             message.Should().NotBeNull();
-            message.MessageType.Should().Be(Core.MvcFlash.Types.Warning);
+            message.MessageType.Should().Be(Core.Flash.Types.Warning);
 
             Flash.Count.Should().Be(1);
         }
@@ -117,7 +117,7 @@ namespace MvcFlash.Tests
             var message = Flash.Info("Info!", "carry on.");
 
             message.Should().NotBeNull();
-            message.MessageType.Should().Be(Core.MvcFlash.Types.Info);
+            message.MessageType.Should().Be(Core.Flash.Types.Info);
 
             Flash.Count.Should().Be(1);
         }
@@ -125,7 +125,7 @@ namespace MvcFlash.Tests
         [Fact]
         public void Can_change_type_of_success_using_configuration()
         {
-            Core.MvcFlash.Types.Success = "a-ok";
+            Core.Flash.Types.Success = "a-ok";
             var message = Flash.Success("hello");
             message.MessageType.Should().Be("a-ok");
         }

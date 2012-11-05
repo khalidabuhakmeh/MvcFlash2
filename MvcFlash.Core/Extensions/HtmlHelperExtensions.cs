@@ -1,20 +1,25 @@
-﻿using System.Web.Mvc;
+﻿using System.Text;
+using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
 namespace MvcFlash.Core.Extensions
 {
     public static class HtmlHelperExtensions
     {
-        public static void Flash<TModel>(this HtmlHelper<TModel> helper)
+        public static MvcHtmlString Flash<TModel>(this HtmlHelper<TModel> helper)
         {
             var popper = DependencyResolver.Current.GetService<IFlashMessenger>()
-                ?? MvcFlash.Instance;
+                ?? Core.Flash.Instance;
+
+            var builder = new StringBuilder();
 
             while (popper.Count > 0)
             {
                 var message = popper.Pop();
-                helper.DisplayFor(m => message);
+                builder.AppendLine(helper.DisplayFor(m => message).ToString());
             }
+
+            return MvcHtmlString.Create(builder.ToString());
         }
     }
 }

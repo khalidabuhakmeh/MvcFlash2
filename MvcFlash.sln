@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solution", ".solution", "{
 		AssemblyInfo.cs = AssemblyInfo.cs
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcFlash.Sample", "MvcFlash.Sample\MvcFlash.Sample.csproj", "{B4F33662-EFE9-46BB-AB02-8E1E549D1308}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{60BA4900-4E72-4417-B633-D173468A3DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60BA4900-4E72-4417-B633-D173468A3DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60BA4900-4E72-4417-B633-D173468A3DFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4F33662-EFE9-46BB-AB02-8E1E549D1308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4F33662-EFE9-46BB-AB02-8E1E549D1308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4F33662-EFE9-46BB-AB02-8E1E549D1308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4F33662-EFE9-46BB-AB02-8E1E549D1308}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
