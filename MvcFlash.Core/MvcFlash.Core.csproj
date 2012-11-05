@@ -74,6 +74,7 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Filters\ClearFlashOnAjaxAttribute.cs" />
     <Compile Include="Flash.cs" />
     <Compile Include="Extensions\FlashPusherExtensions.cs" />
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
