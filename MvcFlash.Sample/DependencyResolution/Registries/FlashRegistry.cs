@@ -3,7 +3,7 @@ using MvcFlash.Core;
 using MvcFlash.Core.Providers;
 using StructureMap.Configuration.DSL;
 
-namespace MvcFlash.Sample.Models
+namespace MvcFlash.Sample.DependencyResolution.Registries
 {
     public class FlashRegistry : Registry
     {

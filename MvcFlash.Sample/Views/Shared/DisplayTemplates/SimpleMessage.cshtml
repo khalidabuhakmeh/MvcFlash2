@@ -1,0 +1,8 @@
+﻿@model MvcFlash.Core.Messages.SimpleMessage
+<div class="alert alert-@Model.MessageType">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong>@Model.Title!</strong> @Model.Content
+  @if (Model.Data != null) {
+    @Html.DisplayFor(m => m.Data)
+  }
+</div>

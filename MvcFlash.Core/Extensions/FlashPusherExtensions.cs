@@ -9,6 +9,7 @@ namespace MvcFlash.Core.Extensions
         {
             return Push(messenger, Flash.Types.Success, title, content, id, data, template);
         }
+
         public static MessageBase Success(this IFlashPusher messenger, string title = "", string content = "", string id = "", string template ="")
         {
             return Push(messenger, Flash.Types.Success, title, content, id, template);
@@ -18,6 +19,7 @@ namespace MvcFlash.Core.Extensions
         {
             return Push(messenger, Flash.Types.Warning, title, content, id, data, template);
         }
+
         public static MessageBase Warning(this IFlashPusher messenger, string title = "", string content = "", string id = "", string template = "")
         {
             return Push(messenger, Flash.Types.Warning, title, content, id, template);
@@ -27,6 +29,7 @@ namespace MvcFlash.Core.Extensions
         {
             return Push(messenger, Flash.Types.Info, title, content, id, data, template);
         }
+
         public static MessageBase Info(this IFlashPusher messenger, string title = "", string content = "", string id = "", string template = "")
         {
             return Push(messenger, Flash.Types.Info, title, content, id, template);
@@ -36,6 +39,7 @@ namespace MvcFlash.Core.Extensions
         {
             return Push(messenger, Flash.Types.Error, title, content, id, data, template);
         }
+
         public static MessageBase Error(this IFlashPusher messenger, string title = "", string content = "", string id = "", string template = "")
         {
             return Push(messenger, Flash.Types.Error, title, content, id, template);

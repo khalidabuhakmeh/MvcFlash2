@@ -129,7 +129,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\FlashImage.cs" />
-    <Compile Include="Models\FlashRegistry.cs" />
+    <Compile Include="DependencyResolution\Registries\FlashRegistry.cs" />
     <Compile Include="Models\RelatedPages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -165,6 +165,7 @@
     <Content Include="Views\Shared\DisplayTemplates\ImageMessage.cshtml" />
     <Content Include="Views\Tricks\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\HelpfulLinks.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SimpleMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
