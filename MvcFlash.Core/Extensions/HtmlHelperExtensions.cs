@@ -23,5 +23,13 @@ namespace MvcFlash.Core.Extensions
 
             return MvcHtmlString.Create(builder.ToString());
         }
+
+        public static T Cast<T>(this object value)
+        {
+            if (value == null)
+                return default(T);
+
+            return (T) value;
+        }
     }
 }

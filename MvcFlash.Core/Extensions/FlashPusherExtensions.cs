@@ -43,7 +43,7 @@ namespace MvcFlash.Core.Extensions
 
         private static MessageBase Push<T>(IFlashPusher messenger, string type, string title = "", string content = "", string id = "", T data = default(T), string template = "")
         {
-            var message = new SimpleMessage<T>
+            var message = new SimpleMessage
             {
                 Title = title,
                 Content = content,
@@ -57,10 +57,11 @@ namespace MvcFlash.Core.Extensions
 
             return messenger.Push(message);
         }
+
         private static MessageBase Push(IFlashPusher messenger, string type, string title = "", string content = "", string id = "", string template = "")
         {
             if (messenger == null) throw new ArgumentNullException("messenger");
-            var message = new SimpleMessage<object>
+            var message = new SimpleMessage
             {
                 Title = title,
                 Content = content,

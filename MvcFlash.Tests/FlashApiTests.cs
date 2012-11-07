@@ -21,7 +21,7 @@ namespace MvcFlash.Tests
         [Fact]
         public void Can_push_a_new_message_on_to_the_flash_messages_stack()
         {
-            Flash.Push(new SimpleMessage<object>
+            Flash.Push(new SimpleMessage
             {
                 Title = "This is a test",
                 MessageType = "test",
@@ -42,7 +42,7 @@ namespace MvcFlash.Tests
         public void Can_push_a_simple_message_with_data_onto_the_flash_message_stack()
         {
 
-            Flash.Push(new SimpleMessage<Test>
+            Flash.Push(new SimpleMessage
             {
                 Data = new Test
                 {
@@ -56,16 +56,16 @@ namespace MvcFlash.Tests
             var message = Flash.Pop();
 
             message.Should().BeAssignableTo<MessageBase>();
-            message.As<SimpleMessage<Test>>().Data.Should().NotBeNull();
-            message.As<SimpleMessage<Test>>().Data.ErrorCode.Should().Be(500);
-            message.As<SimpleMessage<Test>>().Data.Link.Should().Be("http://msdn.com");
+            message.As<SimpleMessage>().Data.Should().NotBeNull();
+            message.As<SimpleMessage>().Data.As<Test>().ErrorCode.Should().Be(500);
+            message.As<SimpleMessage>().Data.As<Test>().Link.Should().Be("http://msdn.com");
         }
 
         [Fact]
         public void Can_push_100_messages_onto_the_flash_message_stack()
         {
             for (int i = 0; i < 100; i++)
-                Flash.Push(new SimpleMessage<object>());
+                Flash.Push(new SimpleMessage());
 
             Flash.Count.Should().Be(100);
         }
@@ -74,7 +74,7 @@ namespace MvcFlash.Tests
         public void Can_push_unique_message_onto_flash_message_stack_with_result_of_one_message()
         {
             for (int i = 0; i < 100; i++)
-                Flash.Push(new SimpleMessage<object> { Id = "test" });
+                Flash.Push(new SimpleMessage { Id = "test" });
 
             Flash.Count.Should().Be(1);
         }
@@ -135,7 +135,7 @@ namespace MvcFlash.Tests
         public void Can_push_a_success_message_with_data()
         {
             var message = Flash.Success(data: new Test());
-            message.As<SimpleMessage<Test>>().Data.Should().NotBeNull();
+            message.As<SimpleMessage>().Data.Should().NotBeNull();
         }
 
         [Fact]

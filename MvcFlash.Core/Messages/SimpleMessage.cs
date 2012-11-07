@@ -1,7 +1,7 @@
 namespace MvcFlash.Core.Messages
 {
-    public class SimpleMessage<T> : MessageBase
+    public class SimpleMessage : MessageBase
     {
-        public T Data { get; set; }
+        public object Data { get; set; }
     }
 }

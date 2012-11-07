@@ -1,4 +1,5 @@
-﻿@model MvcFlash.Core.Messages.SimpleMessage<MvcFlash.Sample.Models.FlashImage>
+﻿@using MvcFlash.Sample.Models
+@model MvcFlash.Core.Messages.SimpleMessage
 <div class="alert alert-@Model.MessageType">
     <button type="button" class="close" data-dismiss="alert">×</button>
     <strong>@Model.Title!</strong>
@@ -6,7 +7,7 @@
     @if (Model.Data != null)
     {
         <div style="text-align:center">
-            <img src="@Url.Content(Model.Data.Link)" alt="@Model.Data.Alt" />
+            <img src="@Url.Content(Model.Data.Cast<FlashImage>().Link)" alt="@(Model.Data.Cast<FlashImage>().Alt)" />
         </div>
     }
 </div>
