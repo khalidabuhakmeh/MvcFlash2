@@ -4,7 +4,7 @@ namespace MvcFlash.Core.Filters
 {
     public class ClearFlashOnAjaxAttribute : ActionFilterAttribute
     {
-        public override void OnResultExecuted(ResultExecutedContext filterContext)
+        public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             if (filterContext.HttpContext.Request.IsAjaxRequest())
             {

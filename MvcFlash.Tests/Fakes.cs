@@ -19,52 +19,52 @@ namespace MvcFlash.Tests.Fakes
 	public class FakeControllerContext : ControllerContext
 	{
 		public FakeControllerContext(ControllerBase controller)
-			: this(controller, new RouteData(), String.Empty, null, null, null, null, null, null)
+			: this(controller, new RouteData(), String.Empty, null, null, null, null, null, null, null)
 		{
 		}
 
 		public FakeControllerContext(ControllerBase controller, NameValueCollection formParams)
-			: this(controller, new RouteData(), String.Empty, null, null, formParams, null, null, null)
+			: this(controller, new RouteData(), String.Empty, null, null, formParams, null, null, null, null)
 		{
 		}
 
 		public FakeControllerContext(ControllerBase controller, string userName)
-			: this(controller, new RouteData(), String.Empty, userName, null, null, null, null, null)
+			: this(controller, new RouteData(), String.Empty, userName, null, null, null, null, null, null)
 		{
 		}
 
 		public FakeControllerContext(ControllerBase controller, HttpCookieCollection cookies)
-			: this(controller, new RouteData(), String.Empty, null, null, null, null, cookies, null)
+			: this(controller, new RouteData(), String.Empty, null, null, null, null, cookies, null, null)
 		{
 		}
 
 		public FakeControllerContext(ControllerBase controller, RouteData routeData)
-			: this(controller, routeData, String.Empty, null, null, null, null, null, null)
+			: this(controller, routeData, String.Empty, null, null, null, null, null, null, null)
 		{
 		}
 
 		public FakeControllerContext(ControllerBase controller, SessionStateItemCollection sessionItems)
-			: this(controller, new RouteData(), String.Empty, null, null, null, null, null, sessionItems)
+			: this(controller, new RouteData(), String.Empty, null, null, null, null, null, sessionItems, null)
 		{
 		}
 
 		public FakeControllerContext(ControllerBase controller, NameValueCollection formParams, NameValueCollection queryStringParams)
-			: this(controller, new RouteData(), String.Empty, null, null, formParams, queryStringParams, null, null)
+			: this(controller, new RouteData(), String.Empty, null, null, formParams, queryStringParams, null, null, null)
 		{
 		}
 
 		public FakeControllerContext(ControllerBase controller, string userName, NameValueCollection formParams)
-			: this(controller, new RouteData(), String.Empty, userName, null, formParams, null, null, null)
+			: this(controller, new RouteData(), String.Empty, userName, null, formParams, null, null, null, null)
 		{
 		}
 
 		public FakeControllerContext(ControllerBase controller, string userName, string[] roles)
-			: this(controller, new RouteData(), String.Empty, userName, roles, null, null, null, null)
+			: this(controller, new RouteData(), String.Empty, userName, roles, null, null, null, null, null)
 		{
 		}
 
-		public FakeControllerContext(ControllerBase controller, RouteData routeData, string appRelativeUrl, string userName, string[] roles, NameValueCollection formParams, NameValueCollection queryStringParams, HttpCookieCollection cookies, SessionStateItemCollection sessionItems)
-			: base(new FakeHttpContext(null, appRelativeUrl, "GET", new FakePrincipal(new FakeIdentity(userName), roles), formParams, queryStringParams, cookies, sessionItems), routeData, controller)
+		public FakeControllerContext(ControllerBase controller, RouteData routeData, string appRelativeUrl, string userName, string[] roles, NameValueCollection formParams, NameValueCollection queryStringParams, HttpCookieCollection cookies, SessionStateItemCollection sessionItems, NameValueCollection headers)
+			: base(new FakeHttpContext(null, appRelativeUrl, "GET", new FakePrincipal(new FakeIdentity(userName), roles), formParams, queryStringParams, cookies, sessionItems, headers), routeData, controller)
 		{
 		}
 	}
@@ -103,52 +103,60 @@ namespace MvcFlash.Tests.Fakes
         private bool _isAuthenticated;
         private readonly NameValueCollection _queryStringParams;
         private readonly SessionStateItemCollection _sessionItems;
+        private readonly NameValueCollection _headers;
         private readonly Uri _url;
         private readonly IPrincipal _principal;
 
         // Methods
         public FakeHttpContext()
-            : this(null, "~/", "GET", null, null, null, null, null)
+            : this(null, "~/", "GET", null, null, null, null, null, null)
+        {
+            this._principal = new GenericPrincipal(new GenericIdentity("someUser"), null /* roles */);
+        }
+
+        public FakeHttpContext(NameValueCollection headers)
+            : this(null, "~/", "GET", null, null, null, null, null, headers)
         {
             this._principal = new GenericPrincipal(new GenericIdentity("someUser"), null /* roles */);
         }
 
         public FakeHttpContext(string appRelativeUrl)
-            : this(null, appRelativeUrl, "GET", null, null, null, null, null)
+            : this(null, appRelativeUrl, "GET", null, null, null, null, null, null)
         {
         }
 
         public FakeHttpContext(string appRelativeUrl, string httpMethod)
-            : this(null, appRelativeUrl, httpMethod, null, null, null, null, null)
+            : this(null, appRelativeUrl, httpMethod, null, null, null, null, null, null)
         {
         }
 
         public FakeHttpContext(Uri url, string appRelativeUrl)
-            : this(url, appRelativeUrl, "GET", null, null, null, null, null)
+            : this(url, appRelativeUrl, "GET", null, null, null, null, null, null)
         {
         }
 
         public FakeHttpContext(Uri url, string appRelativeUrl, IPrincipal principal)
-            : this(url, appRelativeUrl, "GET", principal, null, null, null, null)
+            : this(url, appRelativeUrl, "GET", principal, null, null, null, null, null)
         {
         }
 
-        public FakeHttpContext(Uri url, string appRelativeUrl, string httpMethod, IPrincipal principal, NameValueCollection formParams, NameValueCollection queryStringParams, HttpCookieCollection cookies, SessionStateItemCollection sessionItems)
+        public FakeHttpContext(Uri url, string appRelativeUrl, string httpMethod, IPrincipal principal, NameValueCollection formParams, NameValueCollection queryStringParams, HttpCookieCollection cookies, SessionStateItemCollection sessionItems, NameValueCollection headers)
         {
             this._isAuthenticated = false;
             this._url = url;
             this._appRelativeUrl = appRelativeUrl;
             this._httpMethod = httpMethod;
-            this._formParams = formParams;
-            this._queryStringParams = queryStringParams;
-            this._cookies = cookies;
+            this._formParams = formParams ?? new NameValueCollection();
+            this._queryStringParams = queryStringParams ?? new NameValueCollection();
+            this._cookies = cookies ?? new HttpCookieCollection();
             this._sessionItems = sessionItems;
+            this._headers = headers ?? new NameValueCollection();
             if (principal != null)
             {
                 this._principal = principal;
                 this._isAuthenticated = principal.Identity.IsAuthenticated;
             }
-            this._httpRequest = new FakeHttpRequest(this._url, this._appRelativeUrl, this._httpMethod, this._isAuthenticated, this._formParams, this._queryStringParams, this._cookies);
+            this._httpRequest = new FakeHttpRequest(this._url, this._appRelativeUrl, this._httpMethod, this._isAuthenticated, this._formParams, this._queryStringParams, this._cookies, this._headers);
             this._httpResponse = new FakeHttpResponse();
         }
 
@@ -199,6 +207,7 @@ namespace MvcFlash.Tests.Fakes
         // Fields
         private readonly string _appRelativeUrl;
         private readonly HttpCookieCollection _cookies;
+        private readonly NameValueCollection _headers;
         private readonly NameValueCollection _formParams;
         private readonly string _httpMethod;
         private readonly bool _isAuthenticated = false;
@@ -206,7 +215,7 @@ namespace MvcFlash.Tests.Fakes
         private readonly Uri _url;
 
         // Methods
-        public FakeHttpRequest(Uri url, string appRelativeUrl, string httpMethod, bool isAuthenticated, NameValueCollection formParams, NameValueCollection queryStringParams, HttpCookieCollection cookies)
+        public FakeHttpRequest(Uri url, string appRelativeUrl, string httpMethod, bool isAuthenticated, NameValueCollection formParams, NameValueCollection queryStringParams, HttpCookieCollection cookies, NameValueCollection headers)
         {
             if (!(string.IsNullOrEmpty(appRelativeUrl) || appRelativeUrl.StartsWith("~")))
             {
@@ -219,6 +228,7 @@ namespace MvcFlash.Tests.Fakes
             this._formParams = formParams;
             this._queryStringParams = queryStringParams;
             this._cookies = cookies;
+            this._headers = headers;
         }
 
         // Properties
@@ -291,6 +301,34 @@ namespace MvcFlash.Tests.Fakes
             get
             {
                 return this._url;
+            }
+        }
+
+        public override NameValueCollection Headers
+        {
+            get
+            {
+                return this._headers;
+            }
+        }
+
+        public override string this[string key]
+        {
+            get
+            {
+                if (_cookies != null && _cookies.AllKeys.Contains(key))
+                    return _cookies[key].Value;
+
+                if (_formParams != null && _formParams.AllKeys.Contains(key))
+                    return _formParams[key];
+
+                if (_queryStringParams != null && _queryStringParams.AllKeys.Contains(key))
+                    return _queryStringParams[key];
+
+                if (_headers != null && _headers.AllKeys.Contains(key))
+                    return _headers[key];
+
+                return null;
             }
         }
     }

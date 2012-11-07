@@ -85,6 +85,7 @@
     <Compile Include="ConfigurationTests.cs" />
     <Compile Include="ExtensionTests.cs" />
     <Compile Include="Fakes.cs" />
+    <Compile Include="FilterTests.cs" />
     <Compile Include="FlashApiTests.cs" />
   </ItemGroup>
   <ItemGroup>
