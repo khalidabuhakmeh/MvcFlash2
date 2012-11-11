@@ -84,3 +84,12 @@ MessageBase (the catch all)
 
 
 Since Html.Flash() uses DisplayFor, you can create your own Messages (inheriting from MessageBase), and still leverage a custom template for your unique message. Examples of this can be found in the sample solution.
+
+Notes
+===
+
+If you feel there should be any added features, please feel free to fork and make your additions. Also, please be sure to unit test your changes.
+
+Thanks,
+
+Khalid Abuhakmeh
