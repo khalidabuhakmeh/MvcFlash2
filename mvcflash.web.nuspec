@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>MvcFlash.Web</id>
@@ -12,12 +12,12 @@
         <copyright>Khalid Abuhakmeh (c) 2012</copyright>
         <dependencies>
             <group targetFramework=".NETFramework4.0">
-                <dependency id="MvcFlash.Core" />
+                <dependency id="MvcFlash.Core"/>
             </group>
         </dependencies>
     </metadata>
     <files>
-        <file src="MvcFlash.Sample\Views\Shared\DisplayTemplates\MessageBase.cshtml" target="content\Views\Shared\DisplayTemplates\MessageBase.cshtml" />
-        <file src="MvcFlash.Sample\Views\Shared\DisplayTemplates\SimpleMessage.cshtml" target="content\Views\Shared\DisplayTemplates\SimpleMessage.cshtml" />
+        <file src="MvcFlash.Sample\Views\Shared\DisplayTemplates\MessageBase.cshtml" target="content\Views\Shared\DisplayTemplates\MessageBase.cshtml"/>
+        <file src="MvcFlash.Sample\Views\Shared\DisplayTemplates\SimpleMessage.cshtml" target="content\Views\Shared\DisplayTemplates\SimpleMessage.cshtml"/>
     </files>
 </package>
