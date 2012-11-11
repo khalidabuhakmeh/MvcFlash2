@@ -78,7 +78,7 @@ namespace MvcFlash.Tests
         public void Empty_with_format_throws_exceptions()
         {
             Assert.Throws<ArgumentNullException>(() => ((string)null).NamedFormat(new { text = "text" }));
-            Assert.Throws<ArgumentNullException>(() => StringExtensions.NamedFormat(((string)null), "text"));
+            Assert.Throws<ArgumentNullException>(() => ((string)null).NamedFormat("text"));
         }
 
         public static HtmlHelper<TModel> GetHtmlHelper<TModel>(TModel model, bool clientValidationEnabled)

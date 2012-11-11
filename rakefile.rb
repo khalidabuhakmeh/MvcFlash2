@@ -62,7 +62,6 @@ nugetpack :web => :core do |nuget|
 	nuget.output = "build/"
 end
 
-
 def update_version(file_path)
 	# modify the version number in the nuspec
 	initial = File.read(file_path)
