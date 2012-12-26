@@ -2,6 +2,7 @@
 
 namespace MvcFlash.Core.Messages
 {
+    [Serializable]
     public abstract class MessageBase
     {
         protected MessageBase()
