@@ -4,5 +4,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("MvcFlash")]
 [assembly: AssemblyCopyright("Khalid Abuhakmeh (c) 2012")]
 [assembly: ComVisible(false)]
-[assembly: AssemblyVersion("2.0.0")]
-[assembly: AssemblyFileVersion("2.0.0")]
+[assembly: AssemblyVersion("2.0.1")]
+[assembly: AssemblyFileVersion("2.0.1")]

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>MvcFlash.Core</id>
-        <version>2.0.0</version>
+        <version>2.0.1</version>
         <title>MvcFlash.Core</title>
         <authors>Khalid Abuhakmeh</authors>
         <owners>Khalid Abuhakmeh</owners>
