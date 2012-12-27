@@ -35,7 +35,7 @@ namespace MvcFlash.Core.Providers
 
         public virtual int Count { get { return Messages.Count; } }
 
-        public void Clear()
+        public virtual void Clear()
         {
             while (Messages.Count > 0)
             {

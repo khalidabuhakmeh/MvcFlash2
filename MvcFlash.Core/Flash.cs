@@ -35,7 +35,7 @@ namespace MvcFlash.Core
                 if (messenger != null)
                     return messenger;
 
-                if (_instance == null)
+                if (_instance == null )
                 {
                     lock (Sync)
                     {
@@ -56,7 +56,7 @@ namespace MvcFlash.Core
         public static void Initialize(FlashSettings settings = null)
         {
             if (settings == null)
-                settings = FlashSettings.Default;
+                settings = FlashSettings.Default();
 
             if (settings.Types.Any(string.IsNullOrWhiteSpace))
                 throw new ArgumentException("one or more types are empty, please correct", "settings");

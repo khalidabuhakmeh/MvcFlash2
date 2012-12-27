@@ -1,9 +1,15 @@
+using System;
 using MvcFlash.Core.Providers;
 
 namespace MvcFlash.Core
 {
     public class FlashSettings
     {
+        static FlashSettings()
+        {
+            Default = () => new FlashSettings { Messenger =  new HttpSessionFlashMessenger() };
+        }
+
         public FlashSettings()
         {
             Success = Flash.DefaultSuccess;
@@ -26,12 +32,6 @@ namespace MvcFlash.Core
             }
         }
 
-        public static FlashSettings Default
-        {
-            get
-            {
-                return new FlashSettings { Messenger = new HttpSessionFlashMessenger() };
-            }
-        }
+        public static Func<FlashSettings> Default { get; set; }
     }
 }

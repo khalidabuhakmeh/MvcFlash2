@@ -120,6 +120,7 @@
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IoCController.cs" />
+    <Compile Include="Controllers\RavenDbController.cs" />
     <Compile Include="Controllers\TricksController.cs" />
     <Compile Include="Controllers\WithBaseController.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -156,7 +157,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_viewstart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MessageBase.cshtml" />
@@ -166,6 +169,7 @@
     <Content Include="Views\Tricks\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\HelpfulLinks.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SimpleMessage.cshtml" />
+    <Content Include="Views\RavenDb\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -180,6 +184,10 @@
     <ProjectReference Include="..\MvcFlash.Core\MvcFlash.Core.csproj">
       <Project>{a19c1eeb-613d-4732-889c-7a685728bf01}</Project>
       <Name>MvcFlash.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcFlash.RavenDb\MvcFlash.RavenDb.csproj">
+      <Project>{41DC33CB-76CC-4834-B5AE-2746D4743E6F}</Project>
+      <Name>MvcFlash.RavenDb</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
