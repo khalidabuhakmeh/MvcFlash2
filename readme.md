@@ -33,6 +33,10 @@ Out of the Box:
     Flash.Instance.Info("Info!", "you can read this... if you want.");
     Flash.Instance.Error("Error!", "The sky is falling!");
 
+Be sure to have the following namespaces imported:
+
+    using MvcFlash.Core;
+    using MvcFlash.Core.Extensions;
 
 This way works, but I recommend creating a base controller or by injecting the IFlashMessenger as a dependency.
 
