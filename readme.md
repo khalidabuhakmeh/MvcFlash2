@@ -53,6 +53,7 @@ In Your Views
 
 All you need to have in your views to display your messages is the following:
 
+    @using MvcFlash.Core.Extensions;
     @Html.Flash()
 
 Your messages will be displayed in Last in First Out fashion (LIFO).
