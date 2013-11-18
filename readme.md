@@ -1,6 +1,8 @@
 MvcFlash 2 : Flash Messaging for ASP.Net MVC 4
 ===
 
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/khalidabuhakmeh/mvcflash2/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
 There are times where you would like to pass a message up to the view, but you aren’t sure where the redirects will end up last. That is where MvcFlash comes in. You push messages into MvcFlash and then call Flash() when you need the messages to appear. A super simple implementation that just works. Download the source and run the sample to see some of the things you can do.
 
 ** Messages are persistent and will exist as long as they are not flashed, so you will not have to worry about redirects **
