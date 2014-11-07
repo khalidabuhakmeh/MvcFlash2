@@ -1,0 +1,34 @@
+﻿@model MvcFlash.Core.IFlashMessenger
+@{
+    ViewBag.Title = "Flash with HTTP Cookie Storage";
+}
+
+<h2>Flash with HTTP Cookie Storage</h2>
+
+@using (Html.BeginForm("SetFlashAndRedirect", "CookieStorage"))
+{
+    <fieldset>
+        <label>Flash Type</label>
+        <select name="type">
+            <option>info</option>
+            <option>error</option>
+            <option>warning</option>
+        </select>
+
+        <label>Flash Title</label>
+        <input type="text" name="title" placeholder="Type message title here…">
+        
+        <label>Flash Message</label>
+        <input type="text" name="content" placeholder="Type message here…">
+
+        <br/>
+
+        <button type="submit" class="btn">Submit</button>
+    </fieldset>
+
+}
+
+@Html.Flash(Model)
+
+
+@Html.ActionLink("Refresh page (popped messages will be cleared)", "Index")

@@ -11,11 +11,16 @@ namespace MvcFlash.Core.Extensions
             var popper = DependencyResolver.Current.GetService<IFlashMessenger>()
                 ?? Core.Flash.Instance;
 
+            return Flash(helper, popper);
+        }        
+        
+        public static MvcHtmlString Flash<TModel>(this HtmlHelper<TModel> helper, IFlashMessenger flashMessenger)
+        {
             var builder = new StringBuilder();
 
-            while (popper.Count > 0)
+            while (flashMessenger.Count > 0)
             {
-                var message = popper.Pop();
+                var message = flashMessenger.Pop();
                 builder.AppendLine(string.IsNullOrWhiteSpace(message.Template)
                                        ? helper.DisplayFor(m => message).ToString()
                                        : helper.DisplayFor(m => message, message.Template).ToString());
@@ -23,6 +28,8 @@ namespace MvcFlash.Core.Extensions
 
             return MvcHtmlString.Create(builder.ToString());
         }
+
+
 
         public static T Cast<T>(this object value)
         {

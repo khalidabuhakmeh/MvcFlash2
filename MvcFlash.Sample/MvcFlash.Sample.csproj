@@ -118,6 +118,7 @@
   <ItemGroup>
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\CookieStorageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IoCController.cs" />
     <Compile Include="Controllers\TricksController.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CookieFlashModel.cs" />
     <Compile Include="Models\FlashImage.cs" />
     <Compile Include="DependencyResolution\Registries\FlashRegistry.cs" />
     <Compile Include="Models\RelatedPages.cs" />
@@ -166,6 +168,7 @@
     <Content Include="Views\Tricks\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\HelpfulLinks.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SimpleMessage.cshtml" />
+    <Content Include="Views\CookieStorage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
