@@ -87,6 +87,7 @@
     <Compile Include="Fakes.cs" />
     <Compile Include="FilterTests.cs" />
     <Compile Include="FlashApiTests.cs" />
+    <Compile Include="Providers\CookieStorageFlashMessengerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MvcFlash.Core\MvcFlash.Core.csproj">
