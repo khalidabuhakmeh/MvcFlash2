@@ -100,3 +100,10 @@ If you feel there should be any added features, please feel free to fork and mak
 Thanks,
 
 Khalid Abuhakmeh
+
+Versions
+===
+
+- **2.1.0** : Added `HTTP Cookie` Storage, thanks to @wolfascu. There are some limitations to this storage mechanism that are noted in the [Pull Request](https://github.com/khalidabuhakmeh/MvcFlash2/pull/10).
+
+
